@@ -130,6 +130,8 @@ extern GetnormaldateOFdll GetnormaldateFunc;
 extern Ppacarddll pacarddllproc;
 extern Ppacarddll pacarddllprocreader;
 
+extern int SMSSerialPort;
+extern String SMSPhoneNum;
 
 extern HINSTANCE LoadUSBHModule;
 typedef char* __stdcall(*GETUSBCOMPORT)();

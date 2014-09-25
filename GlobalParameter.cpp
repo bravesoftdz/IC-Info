@@ -32,6 +32,9 @@ char relvpw[12];
 char CCH[] = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 char globalqx[50];
 
+int SMSSerialPort;
+String SMSPhoneNum;
+
 
 unsigned char PosInUseTag[300];
 int ModeOFCollect = 0;

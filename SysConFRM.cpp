@@ -1289,7 +1289,7 @@ void __fastcall TSystemConfigFRM::FormShow(TObject *Sender)
 	//	TEUsingSector->Text = ADOQuery1->FieldByName("USINGSEC")->AsString.Trim();
 	//	SystemNameTextEdit->Text = ADOQuery1->FieldByName("SYSTEMNAME")->AsString.Trim();
 	}
-	cxGroupBox1->Height = 145;
+	cxGroupBox1->Height = 215;
 
 	ADOQuery1->Close();
 
@@ -1364,6 +1364,23 @@ void __fastcall TSystemConfigFRM::FormShow(TObject *Sender)
         CheckBox7->Checked = ADOQuery1->FieldByName("Con3")->AsBoolean;
 	}
 	ADOQuery1->Close();
+
+    String checkstr = GlobalPath + "\\SMSCOM.ini";
+	if(FileExists(checkstr))
+	{
+    	ifstream getin(checkstr.t_str());
+		int COMNUM;
+		getin>>COMNUM;
+        cxTextEdit33->Text = COMNUM;
+    }
+    checkstr = GlobalPath + "\\SMSNUM.ini";
+    if(FileExists(checkstr))
+	{
+    	ifstream getin(checkstr.t_str());
+		char PhoneNUM[12];
+		getin>>PhoneNUM;
+        cxTextEdit34->Text = PhoneNUM;
+    }
 }
 //---------------------------------------------------------------------------
 
@@ -1394,6 +1411,42 @@ void __fastcall TSystemConfigFRM::TEUsingSectorExit(TObject *Sender)
 		ShowMessage("请输入小于2位的使用扇区!");
 		TEUsingSector->Text = "";
 	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSystemConfigFRM::cxButton3Click(TObject *Sender)
+{
+//set SMS serial port
+	if(!cxTextEdit33->Text.IsEmpty())
+    {
+        String storefilepathstr = GlobalPath +"\\SMSCOM.ini";
+        ofstream store(storefilepathstr.t_str());
+    //    store.open((storefilepathstr.t_str());)
+        store<<cxTextEdit33->Text.t_str();
+        ShowMessage("设置短信发送端口成功!");
+    }
+    else
+    {
+        ShowMessage("请输入短信发送端口!");
+    }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSystemConfigFRM::cxButton4Click(TObject *Sender)
+{
+//set SMS phone number
+	if(!cxTextEdit34->Text.IsEmpty())
+    {
+        String storefilepathstr = GlobalPath +"\\SMSNUM.ini";
+        ofstream store(storefilepathstr.t_str());
+    //    store.open((storefilepathstr.t_str());)
+        store<<cxTextEdit34->Text.t_str();
+        ShowMessage("设置短信发送号码成功!");
+    }
+    else
+    {
+        ShowMessage("请输入短信发送号码!");
+    }
 }
 //---------------------------------------------------------------------------
 

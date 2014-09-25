@@ -1120,6 +1120,213 @@ void __fastcall TSDIAppForm::FormCreate(TObject *Sender)
 
 			UpdateZETable->Active = true;
 
+            //get SMS set info
+            char PhoneNUM[12];
+            String checkstr = GlobalPath + "\\SMSCOM.ini";
+            if(FileExists(checkstr))
+            {
+                ifstream getin(checkstr.t_str());
+                int COMNUM;
+                getin>>COMNUM;
+                SMSSerialPort = COMNUM;
+            }
+            checkstr = GlobalPath + "\\SMSNUM.ini";
+            if(FileExists(checkstr))
+            {
+                ifstream getin(checkstr.t_str());
+                getin>>PhoneNUM;
+                SMSPhoneNum = PhoneNUM;
+            }
+            //end get
+            //send SMS
+            String COMStr = "com";
+            COMStr += SMSSerialPort;
+            HANDLE SMSHandle = CreateFile(COMStr.t_str(),
+            							  GENERIC_WRITE,
+                                          FILE_SHARE_WRITE,
+                                          NULL,
+                                          OPEN_EXISTING,
+                                          0,
+                                          0);
+            if(INVALID_HANDLE_VALUE != SMSHandle)
+            {
+                COMMTIMEOUTS SMStout;
+                DCB SMSdcb;
+
+                SMStout.ReadIntervalTimeout = 0;
+                SMStout.ReadTotalTimeoutMultiplier = 1;
+                SMStout.ReadTotalTimeoutConstant = 4000;
+                SMStout.WriteTotalTimeoutMultiplier = 1;
+                SMStout.WriteTotalTimeoutConstant = 4000;
+
+                SetupComm(SMSHandle,2048,2048);
+
+                PurgeComm(SMSHandle,PURGE_TXCLEAR);
+                PurgeComm(SMSHandle,PURGE_RXCLEAR);
+
+                SetCommTimeouts(SMSHandle,&SMStout);
+                GetCommState(SMSHandle,&SMSdcb);
+                SMSdcb.BaudRate = CBR_115200;
+                SMSdcb.ByteSize = 8;
+                SMSdcb.StopBits = ONESTOPBIT;
+                SMSdcb.Parity = NOPARITY;
+
+                SMSdcb.fInX=SMSdcb.fOutX=FALSE;
+                SMSdcb.fOutxDsrFlow=SMSdcb.fOutxCtsFlow=FALSE;
+                SMSdcb.fDtrControl=DTR_CONTROL_ENABLE;
+                SMSdcb.fRtsControl=RTS_CONTROL_ENABLE;
+
+                SetCommState(SMSHandle,&SMSdcb);
+
+/*                AnsiString test;
+                test.sprintf("%s", "短信测试");
+                test += "2014-09-24";
+                wchar_t wcDest[100];
+                test.WideChar(wcDest,14);
+                int m =0;
+                for(m = 0; m < 14; m++);
+                {
+                	ShowMessage(IntToHex(wcDest[m], 4));
+                }            */
+                bool SendSMStag = true;
+                String SMSBDTstr;
+                String SMSEDTstr = DateTimeToStr(Now());
+                TDateTime SMSDT;
+                String rqstr = GlobalPath + "\\SMSDateTime.ini";
+                if(FileExists(rqstr))
+                {
+                	ifstream getin(rqstr.t_str());
+                	getin>>SMSBDTstr.t_str();
+                    try
+                    {
+                    	SMSDT = StrToDateTime(SMSBDTstr);
+                    }
+                    catch(...)
+                    {
+                        SendSMStag = false;
+                    }
+                }
+                else
+                {
+                    SendSMStag = false;
+                }
+
+                ofstream store(rqstr.t_str());
+                store<<SMSEDTstr.t_str();
+
+
+                if(SendSMStag)
+                {
+                	//find Data to sendk
+                    String czstr;
+                    String qkstr;
+                    String tkstr;
+                    float ckje;
+                    float kkje;
+                    float qkje;
+                    float qyjje;
+                    String currentallcksqlstr = "select SUM(SFJE) as allck from MXBAK join CARD_F on  MXBAK.BH=CARD_F.BH and MXBAK.KH=CARD_F.KH where SFLX in ('I','A') and SFRQ>='";
+                    String currentallkksqlstr = "select SUM(MXBAK.SF_YE) as allkk from MXBAK join CARD_F on  MXBAK.BH=CARD_F.BH and MXBAK.KH=CARD_F.KH where SFLX='K' and SFRQ>='";
+                    String currentallqksqlstr = "select SUM(SFJE) as allqk from MXBAK join CARD_F on  MXBAK.BH=CARD_F.BH and MXBAK.KH=CARD_F.KH where SFLX = 'd' and SFRQ>='";
+                    String currentallqyjsqlstr = "select SUM(SFJE) as allqyj from MXBAK join CARD_F on  MXBAK.BH=CARD_F.BH and MXBAK.KH=CARD_F.KH where SFLX in ('R','T','Q') and SFRQ>='";
+
+                    currentallcksqlstr += SMSBDTstr;
+                    currentallcksqlstr += "' and SFRQ<='";
+                    currentallcksqlstr += SMSEDTstr;
+                    currentallcksqlstr += "'";
+
+                    currentallkksqlstr += SMSBDTstr;
+                    currentallkksqlstr += "' and SFRQ<='";
+                    currentallkksqlstr += SMSEDTstr;
+                    currentallkksqlstr += "'";
+
+                    currentallqksqlstr += SMSBDTstr;
+                    currentallqksqlstr += "' and SFRQ<='";
+                    currentallqksqlstr += SMSEDTstr;
+                    currentallqksqlstr += "'";
+
+                    currentallqyjsqlstr += SMSBDTstr;
+                    currentallqyjsqlstr += "' and SFRQ<='";
+                    currentallqyjsqlstr += SMSEDTstr;
+                    currentallqyjsqlstr += "'";
+
+                    InitADOQ->Close();
+                    InitADOQ->SQL->Clear();
+                    InitADOQ->SQL->Add(currentallcksqlstr);
+                    InitADOQ->Open();
+                    ckje = InitADOQ->FieldByName("allck")->AsFloat;
+                    InitADOQ->Close();
+
+                    InitADOQ->Close();
+                    InitADOQ->SQL->Clear();
+                    InitADOQ->SQL->Add(currentallqksqlstr);
+                    InitADOQ->Open();
+                    kkje = InitADOQ->FieldByName("allkk")->AsFloat;
+                    InitADOQ->Close();
+
+                    InitADOQ->Close();
+                    InitADOQ->SQL->Clear();
+                    InitADOQ->SQL->Add(currentallkksqlstr);
+                    InitADOQ->Open();
+                    qkje = InitADOQ->FieldByName("allqk")->AsFloat;
+                    InitADOQ->Close();
+
+                    InitADOQ->Close();
+                    InitADOQ->SQL->Clear();
+                    InitADOQ->SQL->Add(currentallqyjsqlstr);
+                    InitADOQ->Open();
+                    qyjje = InitADOQ->FieldByName("allqyj")->AsFloat;
+                    InitADOQ->Close();
+
+                    czstr = FloatToStr(ckje+kkje);
+                    qkstr = FloatToStr(qkje);
+                    tkstr = FloatToStr(qyjje);
+
+                	String SMSstr = "尊敬的用户：";
+                    SMSstr += SMSBDTstr;
+                    SMSstr += "至";
+                    SMSstr += SMSEDTstr;
+                    SMSstr += "，系统充值总额为：￥";
+                    SMSstr += czstr;
+                    SMSstr += "，取款总额为：￥";
+                    SMSstr += qkstr;
+                    SMSstr += "，退卡取款总额为：￥";
+                    SMSstr += tkstr;
+                    SMSstr += "。";
+
+
+                	//send code
+                    char szBuf[512];
+                    ZeroMemory(szBuf, 512);
+                    strcpy(szBuf, SMSstr.t_str());
+
+                    int widecharlen=MultiByteToWideChar(CP_ACP,
+                                                        MB_COMPOSITE,
+                                                        szBuf,
+                                                        -1,
+                                                        0,
+                                                        0);
+
+                    unsigned char SMSBuf[512];
+                    memset(SMSBuf,0x7D, 512);
+                    SMSBuf[0] = 0x7B;
+                    SMSBuf[1] = 0x3B;
+                    memcpy(&SMSBuf[2], PhoneNUM, 11);
+
+                    MultiByteToWideChar(CP_ACP,
+                                        MB_COMPOSITE,
+                                        szBuf,
+                                        -1,
+                                        (LPWSTR)SMSBuf[13],
+                                        widecharlen);
+
+                    DWORD writenum = 13 + widecharlen*2 + 1;
+                    DWORD writed;
+                    WriteFile(SMSHandle, SMSBuf, writenum, &writed, NULL);
+                }
+            }
+            //end send
+
 			//启动挂失线程
 /*			if(!PostLostInfoThead)
 			{

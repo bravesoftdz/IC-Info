@@ -34,7 +34,7 @@ object SystemConfigFRM: TSystemConfigFRM
       Align = alTop
       Caption = #21333#20301#21517#31216#23494#30721
       TabOrder = 0
-      Height = 246
+      Height = 215
       Width = 381
       object TECancelCardDeposit: TcxTextEdit
         Left = 85
@@ -154,12 +154,12 @@ object SystemConfigFRM: TSystemConfigFRM
       end
       object cxLabel6: TcxLabel
         Left = 15
-        Top = 149
+        Top = 231
         Caption = #21345#29255#23494#30721
       end
       object TECardPassword: TcxTextEdit
         Left = 85
-        Top = 145
+        Top = 227
         Properties.EchoMode = eemPassword
         Properties.MaxLength = 12
         Properties.PasswordChar = #9679
@@ -176,7 +176,7 @@ object SystemConfigFRM: TSystemConfigFRM
       end
       object TBCardPassWord: TcxButton
         Left = 294
-        Top = 144
+        Top = 226
         Width = 75
         Height = 25
         Caption = #20462'   '#25913
@@ -187,12 +187,12 @@ object SystemConfigFRM: TSystemConfigFRM
       end
       object cxLabel7: TcxLabel
         Left = 15
-        Top = 181
+        Top = 263
         Caption = #23494#30721#29256#26412
       end
       object TEPasswordEdtion: TcxTextEdit
         Left = 85
-        Top = 177
+        Top = 259
         Properties.MaxLength = 2
         Properties.PasswordChar = #9679
         Properties.ReadOnly = False
@@ -208,7 +208,7 @@ object SystemConfigFRM: TSystemConfigFRM
       end
       object TBPasswordEdtion: TcxButton
         Left = 294
-        Top = 176
+        Top = 258
         Width = 75
         Height = 25
         Caption = #35774'   '#32622
@@ -219,14 +219,14 @@ object SystemConfigFRM: TSystemConfigFRM
       end
       object cxLabel8: TcxLabel
         Left = 15
-        Top = 259
+        Top = 331
         Caption = #31995#32479#21517#31216
         Enabled = False
         Visible = False
       end
       object SystemNameBTN: TcxButton
         Left = 294
-        Top = 255
+        Top = 327
         Width = 75
         Height = 25
         Caption = #35774'   '#32622
@@ -238,7 +238,7 @@ object SystemConfigFRM: TSystemConfigFRM
       end
       object SystemNameTextEdit: TcxTextEdit
         Left = 85
-        Top = 255
+        Top = 327
         Enabled = False
         Properties.MaxLength = 20
         Properties.ReadOnly = True
@@ -254,12 +254,12 @@ object SystemConfigFRM: TSystemConfigFRM
       end
       object cxLabel16: TcxLabel
         Left = 15
-        Top = 213
+        Top = 295
         Caption = #20351#29992#25159#21306
       end
       object TEUsingSector: TcxTextEdit
         Left = 85
-        Top = 209
+        Top = 291
         Properties.MaxLength = 2
         Properties.ReadOnly = False
         Style.LookAndFeel.NativeStyle = True
@@ -274,7 +274,7 @@ object SystemConfigFRM: TSystemConfigFRM
       end
       object TBUsingSector: TcxButton
         Left = 294
-        Top = 208
+        Top = 290
         Width = 75
         Height = 25
         Caption = #35774'   '#32622
@@ -283,19 +283,78 @@ object SystemConfigFRM: TSystemConfigFRM
         TabOrder = 23
         OnClick = TBUsingSectorClick
       end
+      object cxLabel9: TcxLabel
+        Left = 15
+        Top = 150
+        Caption = #30701#20449#31471#21475
+      end
+      object cxTextEdit33: TcxTextEdit
+        Left = 85
+        Top = 146
+        Properties.MaxLength = 2
+        Properties.ReadOnly = False
+        Style.LookAndFeel.NativeStyle = True
+        StyleDisabled.LookAndFeel.NativeStyle = True
+        StyleFocused.LookAndFeel.NativeStyle = True
+        StyleHot.LookAndFeel.NativeStyle = True
+        TabOrder = 25
+        OnExit = TEUsingSectorExit
+        OnKeyDown = TEUsingSectorKeyDown
+        OnKeyPress = TEUsingSectorKeyPress
+        Width = 200
+      end
+      object cxButton3: TcxButton
+        Left = 294
+        Top = 145
+        Width = 75
+        Height = 25
+        Caption = #35774'   '#32622
+        LookAndFeel.NativeStyle = True
+        TabOrder = 26
+        OnClick = cxButton3Click
+      end
+      object cxButton4: TcxButton
+        Left = 294
+        Top = 178
+        Width = 75
+        Height = 25
+        Caption = #35774'   '#32622
+        LookAndFeel.NativeStyle = True
+        TabOrder = 27
+        OnClick = cxButton4Click
+      end
+      object cxTextEdit34: TcxTextEdit
+        Left = 85
+        Top = 179
+        Properties.MaxLength = 11
+        Properties.ReadOnly = False
+        Style.LookAndFeel.NativeStyle = True
+        StyleDisabled.LookAndFeel.NativeStyle = True
+        StyleFocused.LookAndFeel.NativeStyle = True
+        StyleHot.LookAndFeel.NativeStyle = True
+        TabOrder = 28
+        OnExit = TEUsingSectorExit
+        OnKeyDown = TEUsingSectorKeyDown
+        OnKeyPress = TEUsingSectorKeyPress
+        Width = 200
+      end
+      object cxLabel10: TcxLabel
+        Left = 15
+        Top = 183
+        Caption = #30701#20449#25163#26426
+      end
     end
     object cxGroupBox2: TcxGroupBox
       AlignWithMargins = True
       Left = 0
-      Top = 249
+      Top = 218
       Margins.Left = 0
       Margins.Right = 0
       Margins.Bottom = 0
       Align = alTop
       Caption = 'POS'#26426#26368#22823#28040#36153#35774#32622
       TabOrder = 1
-      ExplicitTop = 246
-      Height = 226
+      Height = 223
       Width = 381
       object Label22: TLabel
         Left = 15
@@ -378,7 +437,7 @@ object SystemConfigFRM: TSystemConfigFRM
       end
       object TEDailyMaxConsumption: TcxTextEdit
         Left = 85
-        Top = 237
+        Top = 265
         Enabled = False
         Properties.MaxLength = 4
         Style.LookAndFeel.NativeStyle = True
@@ -393,14 +452,14 @@ object SystemConfigFRM: TSystemConfigFRM
       end
       object cxLabel15: TcxLabel
         Left = 15
-        Top = 240
+        Top = 268
         Caption = #27599#22825#38480#39069
         Enabled = False
         Visible = False
       end
       object TBDailyMaxConsumption: TcxButton
         Left = 294
-        Top = 236
+        Top = 264
         Width = 75
         Height = 25
         Caption = #35774'   '#32622
@@ -496,13 +555,11 @@ object SystemConfigFRM: TSystemConfigFRM
     end
     object cxGroupBox3: TcxGroupBox
       Left = 0
-      Top = 475
+      Top = 441
       Align = alClient
       Caption = #21442#25968#35774#23450#35268#21017
       TabOrder = 2
-      ExplicitTop = 481
-      ExplicitHeight = 291
-      Height = 297
+      Height = 331
       Width = 381
       object cxMemo1: TcxMemo
         AlignWithMargins = True
@@ -521,8 +578,7 @@ object SystemConfigFRM: TSystemConfigFRM
           '5'#12289#24517#39035#35774#32622#21457#21345#25276#37329#19982#36864#21345#25276#37329#12290)
         Style.BorderColor = clBlack
         TabOrder = 0
-        ExplicitHeight = 266
-        Height = 270
+        Height = 304
         Width = 369
       end
     end
