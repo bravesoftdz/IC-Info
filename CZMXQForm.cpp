@@ -336,10 +336,10 @@ void __fastcall TCZMXQFrm::QueryBTNClick(TObject *Sender)
             sqlstr += ")";
         }
 
-//        sqlstr += " group by CK.kh order by CK.kh";
+   //     sqlstr += " group by CK.kh order by CK.kh";
 
 		MXsqlstr += sqlstr;
-		MXsqlstr += " order by sfrq desc";
+		MXsqlstr += " order by sfrq asc";
         SUMsqlstr += sqlstr;
 		CKADOQ->Close();
         CKADOQ->SQL->Clear();

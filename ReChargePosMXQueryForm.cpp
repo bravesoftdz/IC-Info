@@ -114,7 +114,7 @@ void __fastcall TReChargePosForm::QueryBTNClick(TObject *Sender)
 //        sqlstr += " group by CK.kh order by CK.kh";
 
 		MXsqlstr += sqlstr;
-		MXsqlstr += " order by sfrq desc";
+		MXsqlstr += " order by sfrq asc";
         SUMsqlstr += sqlstr;
 		CZJADOQ->Close();
 		CZJADOQ->SQL->Clear();

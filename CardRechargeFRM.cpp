@@ -899,8 +899,18 @@ void __fastcall TCardRechargeMoneyFRM::Function_ReCharge(double ReChargeMoney) {
 // --------------------------------------------------------------------
 void __fastcall TCardRechargeMoneyFRM::cxTextEdit16KeyPress(TObject *Sender,
 	wchar_t &Key)
+{
+	if ((Key < '0' || Key > '9') && Key != '\b' && Key != VK_RETURN)
 	{
-	if ((Key < '0' || Key > '9') && Key != '\b' && Key == VK_RETURN)
+    	Key = 0;
+    	ShowMessage("请输入0到9之间的数字!");
+	}
+    else
+    {
+        if (Key == VK_RETURN)
+			ReChargeBTN->Click();
+    }
+/*	if ((Key < '0' || Key > '9') && Key != '\b' && Key != VK_RETURN)
 	{
 		if (Key != '.' && Key != VK_RETURN)
 		{
@@ -911,6 +921,10 @@ void __fastcall TCardRechargeMoneyFRM::cxTextEdit16KeyPress(TObject *Sender,
 		if (Key == VK_RETURN)
 			ReChargeBTN->Click();
 	}
+    else
+    {
+        ShowMessage("请输入0到9之间的数字!");
+    }     */
 }
 // ---------------------------------------------------------------------------
 

@@ -1259,14 +1259,14 @@ void __fastcall TSDIAppForm::FormCreate(TObject *Sender)
 
                     InitADOQ->Close();
                     InitADOQ->SQL->Clear();
-                    InitADOQ->SQL->Add(currentallqksqlstr);
+                    InitADOQ->SQL->Add(currentallkksqlstr);
                     InitADOQ->Open();
                     kkje = InitADOQ->FieldByName("allkk")->AsFloat;
                     InitADOQ->Close();
 
                     InitADOQ->Close();
                     InitADOQ->SQL->Clear();
-                    InitADOQ->SQL->Add(currentallkksqlstr);
+                    InitADOQ->SQL->Add(currentallqksqlstr);
                     InitADOQ->Open();
                     qkje = InitADOQ->FieldByName("allqk")->AsFloat;
                     InitADOQ->Close();
@@ -1288,12 +1288,7 @@ void __fastcall TSDIAppForm::FormCreate(TObject *Sender)
                     SMSstr += SMSEDTstr;
                     SMSstr += "，系统充值总额为：￥";
                     SMSstr += czstr;
-                    SMSstr += "，取款总额为：￥";
-                    SMSstr += qkstr;
-                    SMSstr += "，退卡取款总额为：￥";
-                    SMSstr += tkstr;
-                    SMSstr += "。";
-
+                    SMSstr += "，";
 
                 	//send code
                     char szBuf[512];
@@ -1310,19 +1305,130 @@ void __fastcall TSDIAppForm::FormCreate(TObject *Sender)
                     unsigned char SMSBuf[512];
                     memset(SMSBuf,0x7D, 512);
                     SMSBuf[0] = 0x7B;
-                    SMSBuf[1] = 0x3B;
+                    SMSBuf[1] = 0xCB;
                     memcpy(&SMSBuf[2], PhoneNUM, 11);
 
+                    unsigned char changbuf[512];
+        			ZeroMemory(changbuf, 512);
                     MultiByteToWideChar(CP_ACP,
                                         MB_COMPOSITE,
                                         szBuf,
                                         -1,
-                                        (LPWSTR)SMSBuf[13],
+                                        (LPWSTR)changbuf,
                                         widecharlen);
 
-                    DWORD writenum = 13 + widecharlen*2 + 1;
+                    char USC2Str[512];
+                    ZeroMemory(USC2Str, 512);
+                    for(int t = 0; t < widecharlen - 1; t++)
+                    {
+                        char tmp = changbuf[t*2+1]>>4;
+                        tmp = tmp&0x0f;
+                        if(tmp >= 10)
+                            USC2Str[t*4] = tmp+55;
+                        if(tmp <10)
+                            USC2Str[t*4] = tmp+48;
+
+                        tmp = changbuf[t*2+1]&0x0f;
+                        if(tmp >= 10)
+                            USC2Str[t*4+1] = tmp+55;
+                        if(tmp <10)
+                            USC2Str[t*4+1] = tmp+48;
+
+                        tmp = changbuf[t*2]>>4;
+                        tmp = tmp&0x0f;
+                        if(tmp >= 10)
+                            USC2Str[t*4+2] = tmp+55;
+                        if(tmp <10)
+                            USC2Str[t*4+2] = tmp+48;
+                        tmp = changbuf[t*2]&0x0f;
+                        if(tmp >= 10)
+                            USC2Str[t*4+3] = tmp+55;
+                        if(tmp <10)
+                            USC2Str[t*4+3] = tmp+48;
+                    }
+
+                    int len = (widecharlen-1)*4;
+                    SMSBuf[13] = len / 256;
+                    SMSBuf[14] = len % 256;
+                    memcpy(&SMSBuf[15], USC2Str, (widecharlen-1)*4);
+                    DWORD writenum = 15 + (widecharlen-1)*4 + 1;
                     DWORD writed;
+
                     WriteFile(SMSHandle, SMSBuf, writenum, &writed, NULL);
+                    if(writenum != writed)
+                        ShowMessage("系统状态信息发送错误!");
+
+                    Sleep(1000);
+
+                	SMSstr = "取款总额为：￥";
+                    SMSstr += qkstr;
+                    SMSstr += "，退卡取款总额为：￥";
+                    SMSstr += tkstr;
+                    SMSstr += "。";
+
+                    ZeroMemory(szBuf, 512);
+                    strcpy(szBuf, SMSstr.t_str());
+
+                    widecharlen=MultiByteToWideChar(CP_ACP,
+                                                        MB_COMPOSITE,
+                                                        szBuf,
+                                                        -1,
+                                                        0,
+                                                        0);
+
+                    memset(SMSBuf,0x7D, 512);
+                    SMSBuf[0] = 0x7B;
+                    SMSBuf[1] = 0xCB;
+                    memcpy(&SMSBuf[2], PhoneNUM, 11);
+
+        			ZeroMemory(changbuf, 512);
+                    MultiByteToWideChar(CP_ACP,
+                                        MB_COMPOSITE,
+                                        szBuf,
+                                        -1,
+                                        (LPWSTR)changbuf,
+                                        widecharlen);
+
+                    ZeroMemory(USC2Str, 512);
+                    for(int t = 0; t < widecharlen - 1; t++)
+                    {
+                        char tmp = changbuf[t*2+1]>>4;
+                        tmp = tmp&0x0f;
+                        if(tmp >= 10)
+                            USC2Str[t*4] = tmp+55;
+                        if(tmp <10)
+                            USC2Str[t*4] = tmp+48;
+
+                        tmp = changbuf[t*2+1]&0x0f;
+                        if(tmp >= 10)
+                            USC2Str[t*4+1] = tmp+55;
+                        if(tmp <10)
+                            USC2Str[t*4+1] = tmp+48;
+
+                        tmp = changbuf[t*2]>>4;
+                        tmp = tmp&0x0f;
+                        if(tmp >= 10)
+                            USC2Str[t*4+2] = tmp+55;
+                        if(tmp <10)
+                            USC2Str[t*4+2] = tmp+48;
+                        tmp = changbuf[t*2]&0x0f;
+                        if(tmp >= 10)
+                            USC2Str[t*4+3] = tmp+55;
+                        if(tmp <10)
+                            USC2Str[t*4+3] = tmp+48;
+                    }
+
+                    len = (widecharlen-1)*4;
+                    SMSBuf[13] = len / 256;
+                    SMSBuf[14] = len % 256;
+                    memcpy(&SMSBuf[15], USC2Str, (widecharlen-1)*4);
+                    writenum = 15 + (widecharlen-1)*4 + 1;
+
+                    WriteFile(SMSHandle, SMSBuf, writenum, &writed, NULL);
+                    if(writenum != writed)
+                        ShowMessage("系统状态信息发送错误!");
+
+                    CloseHandle(SMSHandle);
                 }
             }
             //end send
@@ -2551,7 +2657,7 @@ void __fastcall TSDIAppForm::dxNavBar1Group8Click(TObject *Sender)
 		MXTOBAKADOQ->ExecSQL();
 		MXTOBAKADOQ->Close();
 		MXTOBAKADOQ->SQL->Clear();
-		MXTOBAKADOQ->SQL->Add("select BH,KH,SF_YE,SFJE,SYCS,SFRQ,JYNO,GZZID,SFLX,CZY,min(SCRQ) as SCRQ into #Tmp from MXBAK group by BH,KH,SF_YE,SFJE,SYCS,SFRQ,JYNO,GZZID,SFLX,CZY drop table MXBAK select * into MXBAK from #Tmp drop table #Tmp");
+		MXTOBAKADOQ->SQL->Add("select BH,KH,SF_YE,SFJE,SYCS,min(SFRQ) as SFRQ,JYNO,GZZID,SFLX,CZY,min(SCRQ) as SCRQ into #Tmp from MXBAK group by BH,KH,SF_YE,SFJE,SYCS,JYNO,GZZID,SFLX,CZY drop table MXBAK select * into MXBAK from #Tmp drop table #Tmp");
 //		MXTOBAKADOQ->SQL->Add("select distinct BH,KH,SF_YE,SFJE,SYCS,SFRQ,JYNO,GZZID,SFLX,CZY,SCRQ into #Tmp from MXBAK drop table MXBAK select * into MXBAK from #Tmp drop table #Tmp");
 		MXTOBAKADOQ->ExecSQL();
 		MXTOBAKADOQ->Close();

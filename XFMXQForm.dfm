@@ -28,9 +28,6 @@ object XFMXQFrm: TXFMXQFrm
     StyleFocused.LookAndFeel.NativeStyle = True
     StyleHot.LookAndFeel.NativeStyle = True
     TabOrder = 0
-    ExplicitLeft = 8
-    ExplicitTop = -2
-    ExplicitHeight = 248
     Height = 231
     Width = 448
     object cxLabel4: TcxLabel

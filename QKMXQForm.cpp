@@ -258,6 +258,7 @@ void __fastcall TQKMXQFrm::QueryBTNClick(TObject *Sender)
         }
 
         MXsqlstr += sqlstr;
+        MXsqlstr += " order by sfrq asc";
         SUMsqlstr += sqlstr;
 
         QKADOQ->Close();

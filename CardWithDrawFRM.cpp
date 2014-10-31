@@ -989,17 +989,16 @@ void __fastcall TCardWithDrawMoneyFRM::WithDraw1000BTNClick(TObject *Sender)
 
 void __fastcall TCardWithDrawMoneyFRM::cxTextEdit16KeyPress(TObject *Sender, wchar_t &Key)
 {
-	if((Key<'0'||Key>'9') && Key!='\b' && Key == VK_RETURN)
+	if ((Key < '0' || Key > '9') && Key != '\b' && Key != VK_RETURN)
 	{
-		if(Key != '.' && Key != VK_RETURN)
-		{
-			Key=0;
-			ShowMessage("请输入0到9之间的数字!");
-        }
-
-        if(Key == VK_RETURN)
-        	WithDrawBTN->Click();
+    	Key = 0;
+    	ShowMessage("请输入0到9之间的数字!");
 	}
+    else
+    {
+        if (Key == VK_RETURN)
+			WithDrawBTN->Click();
+    }
 }
 //---------------------------------------------------------------------------
 
