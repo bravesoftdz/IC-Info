@@ -262,8 +262,8 @@ object DataToFileFrm: TDataToFileFrm
     OnKeyPress = Memo1KeyPress
   end
   object cxButton1: TcxButton
-    Left = 543
-    Top = 371
+    Left = 591
+    Top = 571
     Width = 75
     Height = 25
     Caption = #36864'   '#20986
@@ -271,15 +271,118 @@ object DataToFileFrm: TDataToFileFrm
     TabOrder = 3
     OnClick = cxButton1Click
   end
+  object cxGroupBox3: TcxGroupBox
+    AlignWithMargins = True
+    Left = 3
+    Top = 347
+    Align = alTop
+    Caption = #31227#21160#25968#25454#20837#24211
+    Style.LookAndFeel.NativeStyle = True
+    StyleDisabled.LookAndFeel.NativeStyle = True
+    StyleFocused.LookAndFeel.NativeStyle = True
+    StyleHot.LookAndFeel.NativeStyle = True
+    TabOrder = 4
+    Height = 98
+    Width = 704
+    object Panel4: TPanel
+      Left = 2
+      Top = 21
+      Width = 700
+      Height = 40
+      Align = alTop
+      BevelOuter = bvNone
+      Color = clCream
+      ParentBackground = False
+      TabOrder = 0
+      object Label5: TLabel
+        Left = 8
+        Top = 11
+        Width = 105
+        Height = 16
+        Caption = #25991#20214#23384#20648#36335#24452#65306
+      end
+      object cxButton6: TcxButton
+        Left = 538
+        Top = 7
+        Width = 75
+        Height = 25
+        Caption = #25171#24320#25991#20214
+        LookAndFeel.NativeStyle = True
+        TabOrder = 0
+        OnClick = cxButton6Click
+      end
+      object cxTextEdit5: TcxTextEdit
+        Left = 111
+        Top = 7
+        Style.LookAndFeel.NativeStyle = True
+        StyleDisabled.LookAndFeel.NativeStyle = True
+        StyleFocused.LookAndFeel.NativeStyle = True
+        StyleHot.LookAndFeel.NativeStyle = True
+        TabOrder = 1
+        OnKeyPress = cxTextEdit4KeyPress
+        Width = 420
+      end
+      object cxButton7: TcxButton
+        Left = 619
+        Top = 7
+        Width = 75
+        Height = 25
+        Caption = #24320#22987#20837#24211
+        Enabled = False
+        LookAndFeel.NativeStyle = True
+        TabOrder = 2
+        OnClick = cxButton7Click
+      end
+    end
+    object Panel5: TPanel
+      Left = 2
+      Top = 61
+      Width = 700
+      Height = 35
+      Align = alClient
+      BevelOuter = bvNone
+      Color = clCream
+      ParentBackground = False
+      TabOrder = 1
+      object cxProgressBar2: TcxProgressBar
+        Left = 0
+        Top = 0
+        Align = alClient
+        Properties.AnimationSpeed = 5
+        Properties.BarStyle = cxbsAnimationLEDs
+        Properties.BeginColor = 54056
+        Properties.BorderWidth = 1
+        Properties.Max = 100.000000000000000000
+        Properties.ShowTextStyle = cxtsText
+        Style.LookAndFeel.NativeStyle = True
+        StyleDisabled.LookAndFeel.NativeStyle = True
+        StyleFocused.LookAndFeel.NativeStyle = True
+        StyleHot.LookAndFeel.NativeStyle = True
+        TabOrder = 0
+        Width = 700
+      end
+    end
+  end
   object OpenDialog1: TOpenDialog
     Filter = 'dbt|*.dbt|bak|*.bak'
-    Left = 392
-    Top = 376
+    Left = 424
+    Top = 520
   end
   object ADOQuery1: TADOQuery
     Connection = SDIAppForm.ADOConnection1
     Parameters = <>
-    Left = 480
-    Top = 384
+    Left = 512
+    Top = 528
+  end
+  object OpenDialog2: TOpenDialog
+    Filter = 'txt|*.txt'
+    Left = 272
+    Top = 512
+  end
+  object ADOQuery2: TADOQuery
+    Connection = SDIAppForm.ADOConnection1
+    Parameters = <>
+    Left = 608
+    Top = 504
   end
 end

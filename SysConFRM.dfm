@@ -555,11 +555,11 @@ object SystemConfigFRM: TSystemConfigFRM
     end
     object cxGroupBox3: TcxGroupBox
       Left = 0
-      Top = 441
+      Top = 569
       Align = alClient
       Caption = #21442#25968#35774#23450#35268#21017
       TabOrder = 2
-      Height = 331
+      Height = 203
       Width = 381
       object cxMemo1: TcxMemo
         AlignWithMargins = True
@@ -578,8 +578,37 @@ object SystemConfigFRM: TSystemConfigFRM
           '5'#12289#24517#39035#35774#32622#21457#21345#25276#37329#19982#36864#21345#25276#37329#12290)
         Style.BorderColor = clBlack
         TabOrder = 0
-        Height = 304
+        Height = 176
         Width = 369
+      end
+    end
+    object cxGroupBox6: TcxGroupBox
+      Left = 0
+      Top = 441
+      Align = alTop
+      Caption = #21442#25968#35774#23450#35268#21017
+      TabOrder = 3
+      Height = 128
+      Width = 381
+      object cxButton5: TcxButton
+        Left = 113
+        Top = 40
+        Width = 143
+        Height = 25
+        Caption = #23548#20986#31995#32479#21442#25968
+        LookAndFeel.NativeStyle = True
+        TabOrder = 0
+        OnClick = cxButton5Click
+      end
+      object cxButton6: TcxButton
+        Left = 113
+        Top = 77
+        Width = 143
+        Height = 25
+        Caption = #23548#20986#25346#22833#21442#25968
+        LookAndFeel.NativeStyle = True
+        TabOrder = 1
+        OnClick = cxButton6Click
       end
     end
   end

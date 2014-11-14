@@ -239,6 +239,9 @@ __published:	// IDE-managed Components
 	TcxButton *cxButton4;
 	TcxTextEdit *cxTextEdit34;
 	TcxLabel *cxLabel10;
+	TcxGroupBox *cxGroupBox6;
+	TcxButton *cxButton5;
+	TcxButton *cxButton6;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall BTUnitNameClick(TObject *Sender);
 	void __fastcall TBUnitPasswordClick(TObject *Sender);
@@ -284,6 +287,8 @@ __published:	// IDE-managed Components
 	void __fastcall TEUsingSectorExit(TObject *Sender);
 	void __fastcall cxButton3Click(TObject *Sender);
 	void __fastcall cxButton4Click(TObject *Sender);
+	void __fastcall cxButton5Click(TObject *Sender);
+	void __fastcall cxButton6Click(TObject *Sender);
 
 //	void __fastcall FormKeyDown(TObject *Sender, WORD &Key, TShiftState Shift);
 

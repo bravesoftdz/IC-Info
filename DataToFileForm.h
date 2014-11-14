@@ -54,6 +54,7 @@
 #include "FileCtrl.hpp"
 #include "CollectToFileThread.h"
 #include "FileInDataBaseThread.h"
+#include "MobileInDataBaseThread.h"
 #include <ADODB.hpp>
 #include <DB.hpp>
 
@@ -85,6 +86,16 @@ __published:	// IDE-managed Components
 	TcxButton *cxButton1;
 	TOpenDialog *OpenDialog1;
 	TADOQuery *ADOQuery1;
+	TcxGroupBox *cxGroupBox3;
+	TPanel *Panel4;
+	TLabel *Label5;
+	TcxButton *cxButton6;
+	TcxTextEdit *cxTextEdit5;
+	TcxButton *cxButton7;
+	TPanel *Panel5;
+	TcxProgressBar *cxProgressBar2;
+	TOpenDialog *OpenDialog2;
+	TADOQuery *ADOQuery2;
 	void __fastcall cxButton1Click(TObject *Sender);
 	void __fastcall Memo1KeyPress(TObject *Sender, wchar_t &Key);
 	void __fastcall FormShow(TObject *Sender);
@@ -96,9 +107,12 @@ __published:	// IDE-managed Components
 	void __fastcall cxButton5Click(TObject *Sender);
 	void __fastcall cxTextEdit4KeyPress(TObject *Sender, wchar_t &Key);
 	void __fastcall cxTextEdit1KeyPress(TObject *Sender, wchar_t &Key);
+	void __fastcall cxButton6Click(TObject *Sender);
+	void __fastcall cxButton7Click(TObject *Sender);
 private:	// User declarations
 	TCollectToFileThread* CollectToFileThread;
     TFileInDataBaseThread* FileInDataBaseThread;
+    TMobileInDataBaseThread* MInDataBaseThread;
 public:		// User declarations
 	__fastcall TDataToFileFrm(TComponent* Owner);
 };

@@ -2,7 +2,7 @@
 		<PropertyGroup>
 			<ProjectGuid>{92a79212-383b-4377-944c-7f131da74184}</ProjectGuid>
 			<MainSource>sdiapp.cpp</MainSource>
-			<Config Condition="'$(Config)'==''">Release</Config>
+			<Config Condition="'$(Config)'==''">Debug</Config>
 			<ProjectVersion>12.0</ProjectVersion>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
@@ -227,179 +227,179 @@
 				<DependentOn>CollectToFileThread.h</DependentOn>
 				<BuildOrder>68</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="PreorderdealFRM.cpp">
-				<Form>PreorderdealForm</Form>
-				<DependentOn>PreorderdealFRM.h</DependentOn>
-				<BuildOrder>101</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="AddMPOSFrm.cpp">
-				<Form>AddMPOSForm</Form>
-				<DependentOn>AddMPOSFrm.h</DependentOn>
-				<BuildOrder>99</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="FixRecordForm.cpp">
-				<Form>FixRecordFRM</Form>
-				<DependentOn>FixRecordForm.h</DependentOn>
-				<BuildOrder>134</BuildOrder>
+			<CppCompile Include="BackUpDateFrm.cpp">
+				<Form>BackUpDatafrm</Form>
+				<DependentOn>BackUpDateFrm.h</DependentOn>
+				<BuildOrder>57</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="LostInfoDLFrm.cpp">
 				<Form>LostInfoFRM</Form>
 				<DependentOn>LostInfoDLFrm.h</DependentOn>
 				<BuildOrder>136</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="BKMXQueryForm.cpp">
-				<Form>BKMXQForm</Form>
-				<DependentOn>BKMXQueryForm.h</DependentOn>
-				<BuildOrder>124</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="BTMXInfoExportThread.cpp">
-				<DependentOn>BTMXInfoExportThread.h</DependentOn>
-				<BuildOrder>132</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="PreOrderQueryForm.cpp">
-				<Form>PreOrderQFrm</Form>
-				<DependentOn>PreOrderQueryForm.h</DependentOn>
-				<BuildOrder>105</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="BKMXShowForm.cpp">
-				<Form>BKMXShowFrm</Form>
-				<DependentOn>BKMXShowForm.h</DependentOn>
-				<BuildOrder>125</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="DealHJLThread.cpp">
-				<DependentOn>DealHJLThread.h</DependentOn>
-				<BuildOrder>109</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="QXFPFRM.cpp">
-				<Form>qxfpform</Form>
-				<DependentOn>QXFPFRM.h</DependentOn>
-				<BuildOrder>137</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="BMQForm.cpp">
-				<Form>BMQFrm</Form>
-				<DependentOn>BMQForm.h</DependentOn>
-				<BuildOrder>89</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="StopConsumeExportThread.cpp">
-				<DependentOn>StopConsumeExportThread.h</DependentOn>
-				<BuildOrder>144</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="StopConsumeShowForm.cpp">
-				<Form>StopConsumeShowFRM</Form>
-				<DependentOn>StopConsumeShowForm.h</DependentOn>
-				<BuildOrder>143</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="FixRecordThread.cpp">
-				<DependentOn>FixRecordThread.h</DependentOn>
-				<BuildOrder>135</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="BTDownloadForm.cpp">
-				<Form>BTDownloadFrm</Form>
-				<DependentOn>BTDownloadForm.h</DependentOn>
-				<BuildOrder>60</BuildOrder>
+			<CppCompile Include="PreorderdealFRM.cpp">
+				<Form>PreorderdealForm</Form>
+				<DependentOn>PreorderdealFRM.h</DependentOn>
+				<BuildOrder>101</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="PosStatusFRM.cpp">
 				<Form>PosStatusForm</Form>
 				<DependentOn>PosStatusFRM.h</DependentOn>
 				<BuildOrder>112</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="PXFMXExportThread.cpp">
-				<DependentOn>PXFMXExportThread.h</DependentOn>
-				<BuildOrder>140</BuildOrder>
+			<CppCompile Include="FixRecordForm.cpp">
+				<Form>FixRecordFRM</Form>
+				<DependentOn>FixRecordForm.h</DependentOn>
+				<BuildOrder>134</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="AddMPOSFrm.cpp">
+				<Form>AddMPOSForm</Form>
+				<DependentOn>AddMPOSFrm.h</DependentOn>
+				<BuildOrder>99</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="DealHJLThread.cpp">
+				<DependentOn>DealHJLThread.h</DependentOn>
+				<BuildOrder>109</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="BTMXInfoExportThread.cpp">
+				<DependentOn>BTMXInfoExportThread.h</DependentOn>
+				<BuildOrder>132</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="BKMXQueryForm.cpp">
+				<Form>BKMXQForm</Form>
+				<DependentOn>BKMXQueryForm.h</DependentOn>
+				<BuildOrder>124</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="BKMXShowForm.cpp">
+				<Form>BKMXShowFrm</Form>
+				<DependentOn>BKMXShowForm.h</DependentOn>
+				<BuildOrder>125</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="StopConsumeShowForm.cpp">
+				<Form>StopConsumeShowFRM</Form>
+				<DependentOn>StopConsumeShowForm.h</DependentOn>
+				<BuildOrder>143</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="QXFPFRM.cpp">
+				<Form>qxfpform</Form>
+				<DependentOn>QXFPFRM.h</DependentOn>
+				<BuildOrder>137</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="MobileInDataBaseThread.cpp">
+				<DependentOn>MobileInDataBaseThread.h</DependentOn>
+				<BuildOrder>145</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="StopConsumeExportThread.cpp">
+				<DependentOn>StopConsumeExportThread.h</DependentOn>
+				<BuildOrder>144</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="BMQForm.cpp">
+				<Form>BMQFrm</Form>
+				<DependentOn>BMQForm.h</DependentOn>
+				<BuildOrder>89</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="BTMXShowForm.cpp">
 				<Form>BTMXShowFRM</Form>
 				<DependentOn>BTMXShowForm.h</DependentOn>
 				<BuildOrder>131</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="ScanPosInBaseThread.cpp">
-				<DependentOn>ScanPosInBaseThread.h</DependentOn>
-				<BuildOrder>39</BuildOrder>
+			<CppCompile Include="BTDownloadForm.cpp">
+				<Form>BTDownloadFrm</Form>
+				<DependentOn>BTDownloadForm.h</DependentOn>
+				<BuildOrder>60</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="LoginFRM.cpp">
-				<Form>LoginFrom</Form>
-				<DependentOn>LoginFRM.h</DependentOn>
-				<BuildOrder>27</BuildOrder>
+			<CppCompile Include="FixRecordThread.cpp">
+				<DependentOn>FixRecordThread.h</DependentOn>
+				<BuildOrder>135</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="GoonPWFRM.cpp">
-				<Form>GoonPWForm</Form>
-				<DependentOn>GoonPWFRM.h</DependentOn>
-				<BuildOrder>122</BuildOrder>
+			<CppCompile Include="PXFMXExportThread.cpp">
+				<DependentOn>PXFMXExportThread.h</DependentOn>
+				<BuildOrder>140</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="ReChargeERRFRM.cpp">
 				<Form>ReChargeERRForm</Form>
 				<DependentOn>ReChargeERRFRM.h</DependentOn>
 				<BuildOrder>113</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="MakeAssistanceFRM.cpp">
-				<Form>MakeAssistancedFRM</Form>
-				<DependentOn>MakeAssistanceFRM.h</DependentOn>
-				<BuildOrder>17</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="CZYJSQForm.cpp">
-				<Form>CZYJSQFrm</Form>
-				<DependentOn>CZYJSQForm.h</DependentOn>
-				<BuildOrder>100</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="BackUpDateFrm.cpp">
-				<Form>BackUpDatafrm</Form>
-				<DependentOn>BackUpDateFrm.h</DependentOn>
-				<BuildOrder>57</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="ScanPosCheckBatchThread.cpp">
-				<DependentOn>ScanPosCheckBatchThread.h</DependentOn>
-				<BuildOrder>49</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="CheckedBatchCollectDataThread.cpp">
-				<DependentOn>CheckedBatchCollectDataThread.h</DependentOn>
-				<BuildOrder>50</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="ReChargePosMXQueryForm.cpp">
-				<Form>ReChargePosForm</Form>
-				<DependentOn>ReChargePosMXQueryForm.h</DependentOn>
-				<BuildOrder>123</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="QKMXQForm.cpp">
-				<Form>QKMXQFrm</Form>
-				<DependentOn>QKMXQForm.h</DependentOn>
-				<BuildOrder>76</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="PreOrderMXForm.cpp">
-				<Form>PreOrderMXFrm</Form>
-				<DependentOn>PreOrderMXForm.h</DependentOn>
-				<BuildOrder>106</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="CBMXShowForm.cpp">
-				<Form>CBMXShowFrm</Form>
-				<DependentOn>CBMXShowForm.h</DependentOn>
-				<BuildOrder>85</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="XFMXShowForm.cpp">
-				<Form>XFMXShowFrm</Form>
-				<DependentOn>XFMXShowForm.h</DependentOn>
-				<BuildOrder>79</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="XFMXInfoExportThread.cpp">
-				<DependentOn>XFMXInfoExportThread.h</DependentOn>
-				<BuildOrder>81</BuildOrder>
+			<CppCompile Include="ScanPosInBaseThread.cpp">
+				<DependentOn>ScanPosInBaseThread.h</DependentOn>
+				<BuildOrder>39</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="CZMXQForm.cpp">
 				<Form>CZMXQFrm</Form>
 				<DependentOn>CZMXQForm.h</DependentOn>
 				<BuildOrder>72</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="BacthGSFRM.cpp">
-				<Form>BatchGSForm</Form>
-				<DependentOn>BacthGSFRM.h</DependentOn>
-				<BuildOrder>115</BuildOrder>
+			<CppCompile Include="GoonPWFRM.cpp">
+				<Form>GoonPWForm</Form>
+				<DependentOn>GoonPWFRM.h</DependentOn>
+				<BuildOrder>122</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="LoginFRM.cpp">
+				<Form>LoginFrom</Form>
+				<DependentOn>LoginFRM.h</DependentOn>
+				<BuildOrder>27</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="CheckedBatchCollectDataThread.cpp">
+				<DependentOn>CheckedBatchCollectDataThread.h</DependentOn>
+				<BuildOrder>50</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="CZYJSQForm.cpp">
+				<Form>CZYJSQFrm</Form>
+				<DependentOn>CZYJSQForm.h</DependentOn>
+				<BuildOrder>100</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="MakeAssistanceFRM.cpp">
+				<Form>MakeAssistancedFRM</Form>
+				<DependentOn>MakeAssistanceFRM.h</DependentOn>
+				<BuildOrder>17</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="ScanPosCheckBatchThread.cpp">
+				<DependentOn>ScanPosCheckBatchThread.h</DependentOn>
+				<BuildOrder>49</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="CBMXShowForm.cpp">
+				<Form>CBMXShowFrm</Form>
+				<DependentOn>CBMXShowForm.h</DependentOn>
+				<BuildOrder>85</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="ReChargePosMXQueryForm.cpp">
+				<Form>ReChargePosForm</Form>
+				<DependentOn>ReChargePosMXQueryForm.h</DependentOn>
+				<BuildOrder>123</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="PreOrderQueryForm.cpp">
+				<Form>PreOrderQFrm</Form>
+				<DependentOn>PreOrderQueryForm.h</DependentOn>
+				<BuildOrder>105</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="PreOrderMXForm.cpp">
+				<Form>PreOrderMXFrm</Form>
+				<DependentOn>PreOrderMXForm.h</DependentOn>
+				<BuildOrder>106</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="QKMXQForm.cpp">
+				<Form>QKMXQFrm</Form>
+				<DependentOn>QKMXQForm.h</DependentOn>
+				<BuildOrder>76</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="TKInfoExportThread.cpp">
 				<DependentOn>TKInfoExportThread.h</DependentOn>
 				<BuildOrder>70</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="XFMXExportThread.cpp">
-				<DependentOn>XFMXExportThread.h</DependentOn>
-				<BuildOrder>54</BuildOrder>
+			<CppCompile Include="XFMXInfoExportThread.cpp">
+				<DependentOn>XFMXInfoExportThread.h</DependentOn>
+				<BuildOrder>81</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="XFMXShowForm.cpp">
+				<Form>XFMXShowFrm</Form>
+				<DependentOn>XFMXShowForm.h</DependentOn>
+				<BuildOrder>79</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="BacthGSFRM.cpp">
+				<Form>BatchGSForm</Form>
+				<DependentOn>BacthGSFRM.h</DependentOn>
+				<BuildOrder>115</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="CheckedBCFRM.cpp">
 				<Form>CheckBatchCollectFRM</Form>
@@ -568,170 +568,174 @@
 				<DependentOn>SysConFRM.h</DependentOn>
 				<BuildOrder>9</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="CZLForm.cpp">
-				<Form>CZLQFrm</Form>
-				<DependentOn>CZLForm.h</DependentOn>
-				<BuildOrder>98</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="QKMXExportThread.cpp">
-				<DependentOn>QKMXExportThread.h</DependentOn>
-				<BuildOrder>77</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="ChangeCardMMFRM.cpp">
-				<Form>ChangeCardMMForm</Form>
-				<DependentOn>ChangeCardMMFRM.h</DependentOn>
-				<BuildOrder>42</BuildOrder>
+			<CppCompile Include="BKMXExportThread.cpp">
+				<DependentOn>BKMXExportThread.h</DependentOn>
+				<BuildOrder>126</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="PosConFRM.cpp">
 				<Form>PosConfigFRM</Form>
 				<DependentOn>PosConFRM.h</DependentOn>
 				<BuildOrder>6</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="sdiapp.cpp">
-				<BuildOrder>0</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="DeleteCardInfoFRM.cpp">
-				<Form>DeleteCardInfoFrom</Form>
-				<DependentOn>DeleteCardInfoFRM.h</DependentOn>
-				<BuildOrder>26</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="TKExportThread.cpp">
-				<DependentOn>TKExportThread.h</DependentOn>
-				<BuildOrder>93</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="CZLExportThread.cpp">
-				<DependentOn>CZLExportThread.h</DependentOn>
-				<BuildOrder>99</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="XFTJALLExportThread.cpp">
-				<DependentOn>XFTJALLExportThread.h</DependentOn>
-				<BuildOrder>103</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="FixTitleFRM.cpp">
-				<Form>FixTitleForm</Form>
-				<DependentOn>FixTitleFRM.h</DependentOn>
+			<CppCompile Include="CZLForm.cpp">
+				<Form>CZLQFrm</Form>
+				<DependentOn>CZLForm.h</DependentOn>
 				<BuildOrder>98</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="CheckWRMachFRM.cpp">
-				<Form>CheckWriteReadMachineFRM</Form>
-				<DependentOn>CheckWRMachFRM.h</DependentOn>
-				<BuildOrder>5</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="QKnoticeFRM.cpp">
-				<Form>QKnoticeform</Form>
-				<DependentOn>QKnoticeFRM.h</DependentOn>
-				<BuildOrder>65</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="CreateCSBTThread.cpp">
-				<DependentOn>CreateCSBTThread.h</DependentOn>
-				<BuildOrder>58</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="BigWalletForm.cpp">
-				<Form>BigWalletFrm</Form>
-				<DependentOn>BigWalletForm.h</DependentOn>
-				<BuildOrder>111</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="ExportToXlsThread.cpp">
-				<DependentOn>ExportToXlsThread.h</DependentOn>
-				<BuildOrder>33</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="DealMistakFRM.cpp">
 				<Form>DealMistakeForm</Form>
 				<DependentOn>DealMistakFRM.h</DependentOn>
 				<BuildOrder>114</BuildOrder>
 			</CppCompile>
+			<CppCompile Include="ChangeCardMMFRM.cpp">
+				<Form>ChangeCardMMForm</Form>
+				<DependentOn>ChangeCardMMFRM.h</DependentOn>
+				<BuildOrder>42</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="QKMXExportThread.cpp">
+				<DependentOn>QKMXExportThread.h</DependentOn>
+				<BuildOrder>77</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="XFTJALLExportThread.cpp">
+				<DependentOn>XFTJALLExportThread.h</DependentOn>
+				<BuildOrder>103</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="DeleteCardInfoFRM.cpp">
+				<Form>DeleteCardInfoFrom</Form>
+				<DependentOn>DeleteCardInfoFRM.h</DependentOn>
+				<BuildOrder>26</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="sdiapp.cpp">
+				<BuildOrder>0</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="CZLExportThread.cpp">
+				<DependentOn>CZLExportThread.h</DependentOn>
+				<BuildOrder>99</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="CreateCSBTThread.cpp">
+				<DependentOn>CreateCSBTThread.h</DependentOn>
+				<BuildOrder>58</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="FixTitleFRM.cpp">
+				<Form>FixTitleForm</Form>
+				<DependentOn>FixTitleFRM.h</DependentOn>
+				<BuildOrder>98</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="XFMXExportThread.cpp">
+				<DependentOn>XFMXExportThread.h</DependentOn>
+				<BuildOrder>54</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="QKnoticeFRM.cpp">
+				<Form>QKnoticeform</Form>
+				<DependentOn>QKnoticeFRM.h</DependentOn>
+				<BuildOrder>65</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="CheckWRMachFRM.cpp">
+				<Form>CheckWriteReadMachineFRM</Form>
+				<DependentOn>CheckWRMachFRM.h</DependentOn>
+				<BuildOrder>5</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="TJExportThread.cpp">
+				<DependentOn>TJExportThread.h</DependentOn>
+				<BuildOrder>129</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="ExportToXlsThread.cpp">
+				<DependentOn>ExportToXlsThread.h</DependentOn>
+				<BuildOrder>33</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="BigWalletForm.cpp">
+				<Form>BigWalletFrm</Form>
+				<DependentOn>BigWalletForm.h</DependentOn>
+				<BuildOrder>111</BuildOrder>
+			</CppCompile>
 			<CppCompile Include="ConfirmStoreData.cpp">
 				<Form>ConfirmDataFrm</Form>
 				<DependentOn>ConfirmStoreData.h</DependentOn>
 				<BuildOrder>110</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="TJExportThread.cpp">
-				<DependentOn>TJExportThread.h</DependentOn>
-				<BuildOrder>129</BuildOrder>
+			<CppCompile Include="POMXExportThread.cpp">
+				<DependentOn>POMXExportThread.h</DependentOn>
+				<BuildOrder>107</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="DealHJLForm.cpp">
 				<Form>DealHJLFRM</Form>
 				<DependentOn>DealHJLForm.h</DependentOn>
 				<BuildOrder>108</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="SingleGSThread.cpp">
-				<DependentOn>SingleGSThread.h</DependentOn>
-				<BuildOrder>120</BuildOrder>
+			<CppCompile Include="PXFMXShowForm.cpp">
+				<Form>PXFMXShowFrm</Form>
+				<DependentOn>PXFMXShowForm.h</DependentOn>
+				<BuildOrder>139</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="RealDataInBaseThread.cpp">
 				<DependentOn>RealDataInBaseThread.h</DependentOn>
 				<BuildOrder>104</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="POMXExportThread.cpp">
-				<DependentOn>POMXExportThread.h</DependentOn>
-				<BuildOrder>107</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="SetAllPOSBASE.cpp">
-				<DependentOn>SetAllPOSBASE.h</DependentOn>
-				<BuildOrder>117</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="DisplayTJThread.cpp">
-				<DependentOn>DisplayTJThread.h</DependentOn>
-				<BuildOrder>128</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="BKMXExportThread.cpp">
-				<DependentOn>BKMXExportThread.h</DependentOn>
-				<BuildOrder>126</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="WaterQForm.cpp">
-				<Form>SKMXQFrm</Form>
-				<DependentOn>WaterQForm.h</DependentOn>
-				<BuildOrder>127</BuildOrder>
+			<CppCompile Include="SingleGSThread.cpp">
+				<DependentOn>SingleGSThread.h</DependentOn>
+				<BuildOrder>120</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="CTQForm.cpp">
 				<Form>CTQFrm</Form>
 				<DependentOn>CTQForm.h</DependentOn>
 				<BuildOrder>87</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="SingleWDGSFrm.cpp">
-				<Form>SingleWDGSForm</Form>
-				<DependentOn>SingleWDGSFrm.h</DependentOn>
-				<BuildOrder>118</BuildOrder>
+			<CppCompile Include="DisplayTJThread.cpp">
+				<DependentOn>DisplayTJThread.h</DependentOn>
+				<BuildOrder>128</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="BTXFMXQForm.cpp">
-				<Form>BTFXMXQFrm</Form>
-				<DependentOn>BTXFMXQForm.h</DependentOn>
-				<BuildOrder>130</BuildOrder>
+			<CppCompile Include="SetAllPOSBASE.cpp">
+				<DependentOn>SetAllPOSBASE.h</DependentOn>
+				<BuildOrder>117</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="SingleGSFrm.cpp">
-				<Form>SingleGSForm</Form>
-				<DependentOn>SingleGSFrm.h</DependentOn>
-				<BuildOrder>119</BuildOrder>
+			<CppCompile Include="WaterQForm.cpp">
+				<Form>SKMXQFrm</Form>
+				<DependentOn>WaterQForm.h</DependentOn>
+				<BuildOrder>127</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="WithDrawERRFRM.cpp">
 				<Form>WithDrawERRForm</Form>
 				<DependentOn>WithDrawERRFRM.h</DependentOn>
 				<BuildOrder>121</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="FixLimitTimeFrm.cpp">
-				<Form>FixLimitTimeForm</Form>
-				<DependentOn>FixLimitTimeFrm.h</DependentOn>
-				<BuildOrder>133</BuildOrder>
+			<CppCompile Include="SingleWDGSFrm.cpp">
+				<Form>SingleWDGSForm</Form>
+				<DependentOn>SingleWDGSFrm.h</DependentOn>
+				<BuildOrder>118</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="TKExportThread.cpp">
+				<DependentOn>TKExportThread.h</DependentOn>
+				<BuildOrder>93</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="SingleGSFrm.cpp">
+				<Form>SingleGSForm</Form>
+				<DependentOn>SingleGSFrm.h</DependentOn>
+				<BuildOrder>119</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="BTXFMXQForm.cpp">
+				<Form>BTFXMXQFrm</Form>
+				<DependentOn>BTXFMXQForm.h</DependentOn>
+				<BuildOrder>130</BuildOrder>
+			</CppCompile>
+			<CppCompile Include="StopConsumeQForm.cpp">
+				<Form>StopConsumeQFrm</Form>
+				<DependentOn>StopConsumeQForm.h</DependentOn>
+				<BuildOrder>142</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="PXFXMQery.cpp">
 				<Form>PXFXMForm</Form>
 				<DependentOn>PXFXMQery.h</DependentOn>
 				<BuildOrder>138</BuildOrder>
 			</CppCompile>
-			<CppCompile Include="PXFMXShowForm.cpp">
-				<Form>PXFMXShowFrm</Form>
-				<DependentOn>PXFMXShowForm.h</DependentOn>
-				<BuildOrder>139</BuildOrder>
+			<CppCompile Include="FixLimitTimeFrm.cpp">
+				<Form>FixLimitTimeForm</Form>
+				<DependentOn>FixLimitTimeFrm.h</DependentOn>
+				<BuildOrder>133</BuildOrder>
 			</CppCompile>
 			<CppCompile Include="ModeSetFrm.cpp">
 				<Form>ModeSetForm</Form>
 				<DependentOn>ModeSetFrm.h</DependentOn>
 				<BuildOrder>141</BuildOrder>
-			</CppCompile>
-			<CppCompile Include="StopConsumeQForm.cpp">
-				<Form>StopConsumeQFrm</Form>
-				<DependentOn>StopConsumeQForm.h</DependentOn>
-				<BuildOrder>142</BuildOrder>
 			</CppCompile>
 			<FormResources Include="GSQForm.dfm"/>
 			<FormResources Include="CARDShowForm.dfm"/>
@@ -750,31 +754,31 @@
 			<FormResources Include="CardWithDrawFRM.dfm"/>
 			<FormResources Include="ChangeCardInfoFRM.dfm"/>
 			<FormResources Include="SectionInfoMngFRM.dfm"/>
-			<FormResources Include="PreorderdealFRM.dfm"/>
-			<FormResources Include="AddMPOSFrm.dfm"/>
-			<FormResources Include="FixRecordForm.dfm"/>
+			<FormResources Include="BackUpDateFrm.dfm"/>
 			<FormResources Include="LostInfoDLFrm.dfm"/>
+			<FormResources Include="PreorderdealFRM.dfm"/>
+			<FormResources Include="PosStatusFRM.dfm"/>
+			<FormResources Include="FixRecordForm.dfm"/>
+			<FormResources Include="AddMPOSFrm.dfm"/>
 			<FormResources Include="BKMXQueryForm.dfm"/>
-			<FormResources Include="PreOrderQueryForm.dfm"/>
 			<FormResources Include="BKMXShowForm.dfm"/>
+			<FormResources Include="StopConsumeShowForm.dfm"/>
 			<FormResources Include="QXFPFRM.dfm"/>
 			<FormResources Include="BMQForm.dfm"/>
-			<FormResources Include="StopConsumeShowForm.dfm"/>
-			<FormResources Include="BTDownloadForm.dfm"/>
-			<FormResources Include="PosStatusFRM.dfm"/>
 			<FormResources Include="BTMXShowForm.dfm"/>
-			<FormResources Include="LoginFRM.dfm"/>
-			<FormResources Include="GoonPWFRM.dfm"/>
+			<FormResources Include="BTDownloadForm.dfm"/>
 			<FormResources Include="ReChargeERRFRM.dfm"/>
-			<FormResources Include="MakeAssistanceFRM.dfm"/>
-			<FormResources Include="CZYJSQForm.dfm"/>
-			<FormResources Include="BackUpDateFrm.dfm"/>
-			<FormResources Include="ReChargePosMXQueryForm.dfm"/>
-			<FormResources Include="QKMXQForm.dfm"/>
-			<FormResources Include="PreOrderMXForm.dfm"/>
-			<FormResources Include="CBMXShowForm.dfm"/>
-			<FormResources Include="XFMXShowForm.dfm"/>
 			<FormResources Include="CZMXQForm.dfm"/>
+			<FormResources Include="GoonPWFRM.dfm"/>
+			<FormResources Include="LoginFRM.dfm"/>
+			<FormResources Include="CZYJSQForm.dfm"/>
+			<FormResources Include="MakeAssistanceFRM.dfm"/>
+			<FormResources Include="CBMXShowForm.dfm"/>
+			<FormResources Include="ReChargePosMXQueryForm.dfm"/>
+			<FormResources Include="PreOrderQueryForm.dfm"/>
+			<FormResources Include="PreOrderMXForm.dfm"/>
+			<FormResources Include="QKMXQForm.dfm"/>
+			<FormResources Include="XFMXShowForm.dfm"/>
 			<FormResources Include="BacthGSFRM.dfm"/>
 			<FormResources Include="CheckedBCFRM.dfm"/>
 			<FormResources Include="CZMXShowForm.dfm"/>
@@ -801,37 +805,37 @@
 			<FormResources Include="CZnoticeFRM.dfm"/>
 			<FormResources Include="DataToFileForm.dfm"/>
 			<FormResources Include="SysConFRM.dfm"/>
-			<FormResources Include="CZLForm.dfm"/>
-			<FormResources Include="ChangeCardMMFRM.dfm"/>
 			<FormResources Include="PosConFRM.dfm"/>
+			<FormResources Include="CZLForm.dfm"/>
+			<FormResources Include="DealMistakFRM.dfm"/>
+			<FormResources Include="ChangeCardMMFRM.dfm"/>
 			<FormResources Include="DeleteCardInfoFRM.dfm"/>
 			<FormResources Include="FixTitleFRM.dfm"/>
-			<FormResources Include="CheckWRMachFRM.dfm"/>
 			<FormResources Include="QKnoticeFRM.dfm"/>
+			<FormResources Include="CheckWRMachFRM.dfm"/>
 			<FormResources Include="BigWalletForm.dfm"/>
-			<FormResources Include="DealMistakFRM.dfm"/>
 			<FormResources Include="ConfirmStoreData.dfm"/>
 			<FormResources Include="DealHJLForm.dfm"/>
-			<FormResources Include="WaterQForm.dfm"/>
-			<FormResources Include="CTQForm.dfm"/>
-			<FormResources Include="SingleWDGSFrm.dfm"/>
-			<FormResources Include="BTXFMXQForm.dfm"/>
-			<FormResources Include="SingleGSFrm.dfm"/>
-			<FormResources Include="WithDrawERRFRM.dfm"/>
-			<FormResources Include="FixLimitTimeFrm.dfm"/>
-			<FormResources Include="PXFXMQery.dfm"/>
 			<FormResources Include="PXFMXShowForm.dfm"/>
-			<FormResources Include="ModeSetFrm.dfm"/>
+			<FormResources Include="CTQForm.dfm"/>
+			<FormResources Include="WaterQForm.dfm"/>
+			<FormResources Include="WithDrawERRFRM.dfm"/>
+			<FormResources Include="SingleWDGSFrm.dfm"/>
+			<FormResources Include="SingleGSFrm.dfm"/>
+			<FormResources Include="BTXFMXQForm.dfm"/>
 			<FormResources Include="StopConsumeQForm.dfm"/>
+			<FormResources Include="PXFXMQery.dfm"/>
+			<FormResources Include="FixLimitTimeFrm.dfm"/>
+			<FormResources Include="ModeSetFrm.dfm"/>
 			<BuildConfiguration Include="Base">
 				<Key>Base</Key>
 			</BuildConfiguration>
-			<BuildConfiguration Include="Debug">
-				<Key>Cfg_1</Key>
-				<CfgParent>Base</CfgParent>
-			</BuildConfiguration>
 			<BuildConfiguration Include="Release">
 				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_1</Key>
 				<CfgParent>Base</CfgParent>
 			</BuildConfiguration>
 		</ItemGroup>

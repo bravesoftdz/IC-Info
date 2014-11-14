@@ -93,7 +93,6 @@ USEFORM("BTMXShowForm.cpp", BTMXShowFRM);
 USEFORM("BMQForm.cpp", BMQFrm);
 USEFORM("QXFPFRM.cpp", qxfpform);
 USEFORM("StopConsumeShowForm.cpp", StopConsumeShowFRM);
-//---------------------------------------------------------------------------
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 //	SHELLEXECUTEINFO   e1;

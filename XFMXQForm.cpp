@@ -306,7 +306,7 @@ void __fastcall TXFMXQFrm::QueryBTNClick(TObject *Sender)
 
 		displaysqlstr += sqlstr;
         MXsqlstr += sqlstr;
-        MXsqlstr += " order by sfrq asc";
+        MXsqlstr += " order by MXBAK.kh,MXBAK.SYCS,sfrq asc";
 		SUMsqlstr += sqlstr;
 		Allcssqlstr += sqlstr;
         XFADOQ->Close();

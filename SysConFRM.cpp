@@ -1450,3 +1450,172 @@ void __fastcall TSystemConfigFRM::cxButton4Click(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TSystemConfigFRM::cxButton5Click(TObject *Sender)
+{
+	unsigned char sysconfig[128];
+    ZeroMemory(sysconfig, 128);
+
+    sysconfig[0] = UsingSecNUM;
+    sysconfig[2] = DWPassword[0];
+    sysconfig[3] = DWPassword[1];
+    sysconfig[38] = CARDPasswordEdition;
+    sysconfig[39] = CARDPassword[0];
+    sysconfig[40] = CARDPassword[1];
+    sysconfig[41] = CARDPassword[2];
+    sysconfig[42] = CARDPassword[3];
+    sysconfig[43] = CARDPassword[4];
+    sysconfig[44] = CARDPassword[5];
+
+    int max,everymax;
+    max = 0;
+    everymax = 0;
+    ADOQuery1->Close();
+    ADOQuery1->SQL->Clear();
+    ADOQuery1->SQL->Add("select * from SFJPARAM");
+    ADOQuery1->Open();
+    if(!ADOQuery1->IsEmpty())
+    {
+    	ADOQuery1->First();
+        everymax = ADOQuery1->FieldByName("MAXXF")->AsInteger*100;
+        max = ADOQuery1->FieldByName("MAXZZZE")->AsInteger*100;
+    }
+    ADOQuery1->Close();
+    sysconfig[45] = (unsigned char)(everymax/256/256);
+    sysconfig[46] = (unsigned char)((everymax%(256*256))/256);
+    sysconfig[47] = (unsigned char)everymax;
+
+    sysconfig[54] = (unsigned char)(max/256/256);
+    sysconfig[55] = (unsigned char)((max%(256*256))/256);
+    sysconfig[56] = (unsigned char)max;
+
+    ofstream SysSaveStream;
+    String syspath = GlobalPath;
+    syspath += "\\sys.bin";
+    SysSaveStream.open(syspath.t_str(),ios::out,0);
+    if(SysSaveStream.is_open())
+    {
+        for(int i = 0; i < 128; i++)
+        	SysSaveStream<<sysconfig[i];
+    }
+    SysSaveStream.close();
+    ShowMessage("保存系统设置文件成功!");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TSystemConfigFRM::cxButton6Click(TObject *Sender)
+{
+	unsigned char SendStr1[9000];
+	unsigned char SendStr2[9000];
+	unsigned char SendStr3[9000];
+	WORD nSendStr = 8192;
+	unsigned char CMD = 0x44;
+
+	int tmpkh;
+	int khbit;
+	int khbyte;
+
+	unsigned char GSCODE[8];
+	GSCODE[0] = 1;
+	GSCODE[1] = 2;
+	GSCODE[2] = 4;
+	GSCODE[3] = 8;
+	GSCODE[4] = 16;
+	GSCODE[5] = 32;
+	GSCODE[6] = 64;
+	GSCODE[7] = 128;
+
+
+	//第一包
+	ZeroMemory(SendStr1, 9000);
+	SendStr1[64] = 0x20;
+	SendStr1[65] = 0x03;
+	SendStr1[66] = 0x01;
+	SendStr1[67] = 0x01;
+
+	enableGS = false;
+	ADOQuery1->Close();
+	ADOQuery1->SQL->Clear();
+	ADOQuery1->SQL->Add("select * from gs where KH<64513 order by KH asc");
+	ADOQuery1->Open();
+	if(!ADOQuery1->IsEmpty())
+	{
+		ADOQuery1->First();
+		while(!ADOQuery1->Eof)
+		{
+			tmpkh = ADOQuery1->FieldByName("KH")->AsInteger;
+			khbit = (tmpkh-1)%8;
+			khbyte = (tmpkh-1)/8;
+			SendStr1[128+khbyte] = (unsigned char)(SendStr1[128+khbyte]+GSCODE[khbit]);
+			ADOQuery1->Next();
+		}
+	}
+	ADOQuery1->Close();
+
+	//第二包
+	ZeroMemory(SendStr2, 9000);
+	SendStr2[64] = 0x20;
+	SendStr2[65] = 0x03;
+	SendStr2[66] = 0x02;
+	SendStr2[67] = 0x02;
+	ADOQuery1->SQL->Clear();
+	ADOQuery1->SQL->Add("select * from gs where KH>64512 and KH<129025 order by KH asc");
+	ADOQuery1->Open();
+	if(!ADOQuery1->IsEmpty())
+	{
+		ADOQuery1->First();
+		while(!ADOQuery1->Eof)
+		{
+			tmpkh = ADOQuery1->FieldByName("KH")->AsInteger;
+			khbit = (tmpkh-1-64512)%8;
+			khbyte = (tmpkh-1-64512)/8;
+			SendStr2[128+khbyte] = (unsigned char)(SendStr2[128+khbyte]+GSCODE[khbit]);
+			ADOQuery1->Next();
+		}
+	}
+	ADOQuery1->Close();
+
+	//第三包
+	ZeroMemory(SendStr3, 9000);
+	SendStr3[64] = 0x20;
+	SendStr3[65] = 0x03;
+	SendStr3[66] = 0x03;
+	SendStr3[67] = 0x03;
+	ADOQuery1->SQL->Clear();
+	ADOQuery1->SQL->Add("select * from gs where KH>129024 and KH<193537 order by KH asc");
+	ADOQuery1->Open();
+	if(!ADOQuery1->IsEmpty())
+	{
+		ADOQuery1->First();
+		while(!ADOQuery1->Eof)
+		{
+			tmpkh = ADOQuery1->FieldByName("KH")->AsInteger;
+			khbit = (tmpkh-1-129024)%8;
+			khbyte = (tmpkh-1-129024)/8;
+			SendStr3[128+khbyte] = (unsigned char)(SendStr3[128+khbyte]+GSCODE[khbit]);
+			ADOQuery1->Next();
+		}
+	}
+	ADOQuery1->Close();
+
+    ofstream SysSaveStream;
+    String syspath = GlobalPath;
+    syspath += "\\gs.bin";
+    SysSaveStream.open(syspath.t_str(),ios::out,0);
+    if(SysSaveStream.is_open())
+    {
+    	int i = 0;
+        for(i = 128; i < 8192; i++)
+        	SysSaveStream<<SendStr1[i];
+
+        for(i = 128; i < 8192; i++)
+        	SysSaveStream<<SendStr2[i];
+
+        for(i = 128; i < 8192; i++)
+        	SysSaveStream<<SendStr3[i];
+    }
+    SysSaveStream.close();
+
+	ShowMessage("挂失信息导出成功!");
+}
+//---------------------------------------------------------------------------
+

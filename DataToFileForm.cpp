@@ -261,3 +261,42 @@ void __fastcall TDataToFileFrm::cxTextEdit1KeyPress(TObject *Sender, wchar_t &Ke
 //---------------------------------------------------------------------------
 
 
+void __fastcall TDataToFileFrm::cxButton6Click(TObject *Sender)
+{
+	OpenDialog2->Execute();
+    cxTextEdit5->Text = OpenDialog2->FileName;
+    cxButton7->Enabled = true;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TDataToFileFrm::cxButton7Click(TObject *Sender)
+{
+    if(FileExists(cxTextEdit5->Text.t_str()))
+    {
+		if(!MInDataBaseThread)
+        {
+            MInDataBaseThread = new TMobileInDataBaseThread(true,
+                                                             cxTextEdit5->Text,
+                                                             cxProgressBar2,
+                                                             ADOQuery2);
+            if(MInDataBaseThread)
+            	MInDataBaseThread->Resume();
+        }
+        else
+        {
+            if(MInDataBaseThread->Finished)
+            {
+                MInDataBaseThread = new TMobileInDataBaseThread(true,
+                                                                 cxTextEdit5->Text,
+                                                                 cxProgressBar2,
+                                                                 ADOQuery2);
+                if(MInDataBaseThread)
+                    MInDataBaseThread->Resume();
+            }
+        }
+    }
+    else
+    	ShowMessage("您指定的数据文件不存在!");
+}
+//---------------------------------------------------------------------------
+

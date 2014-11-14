@@ -857,5 +857,8 @@
     <File Path="StopConsumeExportThread.cpp"/>
     <File Path="StopConsumeExportThread.cpp"/>
     <File Path="StopConsumeExportThread.h"/>
+    <File Path="MobileInDataBaseThread.cpp"/>
+    <File Path="MobileInDataBaseThread.cpp"/>
+    <File Path="MobileInDataBaseThread.h"/>
   </ProjectSortOrder>
 </BorlandProject>
