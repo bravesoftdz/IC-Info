@@ -1467,6 +1467,7 @@ void __fastcall TSystemConfigFRM::cxButton5Click(TObject *Sender)
     sysconfig[44] = CARDPassword[5];
 
     int max,everymax;
+    int czmm;
     max = 0;
     everymax = 0;
     ADOQuery1->Close();
@@ -1478,6 +1479,7 @@ void __fastcall TSystemConfigFRM::cxButton5Click(TObject *Sender)
     	ADOQuery1->First();
         everymax = ADOQuery1->FieldByName("MAXXF")->AsInteger*100;
         max = ADOQuery1->FieldByName("MAXZZZE")->AsInteger*100;
+        czmm = ADOQuery1->FieldByName("PASSWORD")->AsInteger;
     }
     ADOQuery1->Close();
     sysconfig[45] = (unsigned char)(everymax/256/256);
@@ -1487,6 +1489,9 @@ void __fastcall TSystemConfigFRM::cxButton5Click(TObject *Sender)
     sysconfig[54] = (unsigned char)(max/256/256);
     sysconfig[55] = (unsigned char)((max%(256*256))/256);
     sysconfig[56] = (unsigned char)max;
+
+    sysconfig[6] = (unsigned char)(czmm/256);
+    sysconfig[7] = (unsigned char)czmm;
 
     ofstream SysSaveStream;
     String syspath = GlobalPath;

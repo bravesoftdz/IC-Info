@@ -65,8 +65,6 @@ void __fastcall TMobileInDataBaseThread::Execute()
             String realnamestr = realname[1];
             realnamestr += realname[2];
 
-            PosNumber = StrToInt(realnamestr);
-
             tmpdata = new unsigned char[filesize];
             purifieddata = new unsigned char [filesize];
         	tmpdatalen = filesize;
@@ -123,7 +121,7 @@ void __fastcall TMobileInDataBaseThread::AnalyzeDataFunc()
         String Errorinsqlstr = "";
 
 		OrignalDataStr = "";
- //		PosNumber = (int)BufferFromFile[12]*256+(int)BufferFromFile[5];
+		PosNumber = (int)BufferFromFile[12]*256+(int)BufferFromFile[5];
 
 		int RecordIndexPos;
 		int tmpKH;
